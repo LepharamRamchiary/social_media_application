@@ -7,13 +7,13 @@ import { Provider } from "react-redux";
 import store from "./store/store.js";
 
 import Home from "./pages/Home";
-import AuthLayout from "./components/AuthLayout";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import AllPosts from "./pages/AllPosts";
-import AddPost from "./pages/AddPost";
-import EditPost from "./pages/EditPost";
-import Post from "./pages/Post";
+import Protected from "./components/AuthLayout.jsx";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
+import AllPosts from "./pages/AllPosts.jsx";
+import AddPost from "./pages/AddPost.jsx";
+import EditPost from "./pages/EditPost.jsx";
+import Post from "./pages/Post.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,49 +27,49 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: (
-          <AuthLayout authentication={false}>
+          <Protected authentication={false}>
             <Login />
-          </AuthLayout>
+          </Protected>
         ),
       },
       {
         path: "/signup",
         element: (
-          <AuthLayout authentication={false}>
+          <Protected authentication={false}>
             <Signup />
-          </AuthLayout>
+          </Protected>
         ),
       },
       {
         path: "/all-posts",
         element: (
-          <AuthLayout authentication>
+          <Protected authentication={false}>
             <AllPosts />
-          </AuthLayout>
+          </Protected>
         ),
       },
       {
         path: "/add-post",
         element: (
-          <AuthLayout authentication>
+          <Protected authentication>
             <AddPost />
-          </AuthLayout>
+          </Protected>
         ),
       },
       {
         path: "/edit-post/:slug",
         element: (
-          <AuthLayout authentication>
+          <Protected authentication>
             <EditPost />
-          </AuthLayout>
+          </Protected>
         ),
       },
       {
         path: "/post/:slug",
         element: (
-          <AuthLayout authentication>
+          <Protected authentication>
             <Post />
-          </AuthLayout>
+          </Protected>
         ),
       },
     ],
