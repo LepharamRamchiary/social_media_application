@@ -6,22 +6,22 @@ import Input from "./Input";
 import Logo from "./Logo";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { login } from "../store/authSlice.js";
+import { login as authLogin } from "../store/authSlice.js";
 
-function Signup() {
+function Login() {
   const navigate = useNavigate();
-  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+  const [error, setError] = useState("");
 
-  const create = async (data) => {
+  const login = async (data) => {
     setError("");
     try {
-      const userData = await authService.createAccount(data);
+      const userData = await authService.login(data);
       if (userData) {
         const currentUser = await authService.getCurrentUser();
         if (currentUser) {
-          dispatch(login({ currentUser }));
+          dispatch(authLogin({ currentUser }));
           navigate("/");
         }
       }
@@ -30,7 +30,7 @@ function Signup() {
     }
   };
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center w-full">
       <div
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
@@ -41,28 +41,23 @@ function Signup() {
         </div>
 
         <h2 className="text-center text-2xl font-bold leading-tight">
-          Sing up to create anccount
+          Sing in to your anccount
         </h2>
 
         <p className="mt-2 text-center text-base text-black/60">
-          Already have an account ? &nbsp;
+          Don&apos;t have an account ? &nbsp;
           <Link
-            to="/login"
+            to="/signup"
             className="font-medium text-primary transition-all duration-200 hover:underline"
           >
-            Sign in
+            Sign up
           </Link>
         </p>
 
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
-        <form onSubmit={handleSubmit(create)} className="mt-8">
+        <form onSubmit={handleSubmit(login)} className="mt-8">
           <div className="space-y-5">
-            <Input
-              {...register("name", { required: true })}
-              label="Full name : "
-              placeholder="Full name"
-            />
             <Input
               {...register("email", { required: true })}
               label="Email : "
@@ -78,7 +73,7 @@ function Signup() {
             />
 
             <Button type="submit" className="w-full">
-              Create Account
+              Sign in
             </Button>
           </div>
         </form>
@@ -87,4 +82,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;
