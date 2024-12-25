@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function Footer() {
   return (
@@ -10,46 +10,67 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">About Us</h3>
             <p className="text-sm">
-              We provide high-quality services and solutions to our clients worldwide. Your satisfaction is our priority.
+              This is a simple website built using Appwrite and React. We
+              provide high-quality services and solutions to our clients
+              worldwide. Your satisfaction is our priority.
             </p>
           </div>
 
           {/* Section 2: Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Quick Links
+            </h3>
             <ul>
-              <li className="mb-2"><a href="#" className="hover:underline">Home</a></li>
-              <li className="mb-2"><a href="#" className="hover:underline">Services</a></li>
-              <li className="mb-2"><a href="#" className="hover:underline">About</a></li>
-              <li className="mb-2"><a href="#" className="hover:underline">Contact</a></li>
+              <li className="mb-2">
+                <a href="/" className="hover:underline">
+                  Home
+                </a>
+              </li>
+              <li className="mb-2">
+                <a href="/all-posts" className="hover:underline">
+                  All Posts
+                </a>
+              </li>
+              <li className="mb-2">
+                <a href="/add-post" className="hover:underline">
+                  Add Post
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Section 3: Contact */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Contact Us
+            </h3>
             <ul>
-              <li className="mb-2">Email: info@example.com</li>
-              <li className="mb-2">Phone: +123 456 7890</li>
-              <li className="mb-2">Address: 123 Street, City, Country</li>
+              <li className="mb-2">Email: lepharamchiary@gmail.com</li>
+              <li className="mb-2">Phone: +91 9101318307</li>
+              <li className="mb-2">Address: Gogamukh,Dhemaji(Assam)</li>
             </ul>
           </div>
 
           {/* Section 4: Social Media */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white">
-                <i className="fab fa-facebook-f"></i>
+            <h3 className="text-lg font-semibold text-white mb-4">Follow Me</h3>
+            <div className="flex flex-col">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/lepharam-ramchiary-576282215"
+                className="text-gray-300 hover:text-white"
+              >
+                <i>LinkedIn</i>
               </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                <i className="fab fa-linkedin-in"></i>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/LepharamRamchiary"
+                className="text-gray-300 hover:text-white"
+              >
+                <i className="fab fa-twitter">GitHub</i>
               </a>
             </div>
           </div>
@@ -57,7 +78,9 @@ function Footer() {
 
         {/* Divider */}
         <div className="mt-8 border-t border-gray-700 pt-4 text-center">
-          <p className="text-sm">&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
