@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import appwriteService from "../appwrite/config";
+import appwriteService from "../appwrite/config.js";
 import Button from "../components/Button";
 import Container from "../components/container/Container";
 import parse from "html-react-parser";
@@ -13,10 +13,19 @@ function Post() {
   const userData = useSelector((state) => state.auth.userData);
   const isAuthor = post && userData ? post.userId === userData.$id : false;
 
+  
+  
   useEffect(() => {
     if (slug) {
+      console.log("slug",slug);
       appwriteService.getPost(slug).then((post) => {
-        setPost(post);
+        // console.log("post", post);
+        
+        if (post) {
+          setPost(post);
+        } else {
+          navigate("/");
+        }
       });
     } else {
       navigate("/");
@@ -26,7 +35,7 @@ function Post() {
   const deletePost = () => {
     appwriteService.deletePost(post.$id).then((status) => {
       if (status) {
-        appwriteService.deleteFile(post.featuredImage);
+        appwriteService.deleteFile(post.featureImage);
         navigate("/");
       }
     });
@@ -37,7 +46,7 @@ function Post() {
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
           <img
-            src={appwriteService.getFilePreview(post.featuredImage)}
+            src={appwriteService.getFilePreview(post.featureImage)}
             alt={post.title}
             className="rounded-xl"
           />
